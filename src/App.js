@@ -26,25 +26,6 @@ const Login = lazy(() =>
   import("./Route/SingIn/SingIn" /* webpackChunkName: "Login" */)
 );
 
-// import { render } from "@testing-library/react";
-
-// import styles from "./App.module.scss";
-
-// const App = ({ logger }) => {
-//   return (
-//     <div>
-//       <UserLogged />
-//       <Switch>
-//         <Route path="/register" component={Register} />
-//         <Route path="/Login" component={Login} />
-//         <Route path="/" component={PhoneBook} />
-//       </Switch>
-
-//       {logger && <h1>Загрузк...</h1>}
-//     </div>
-//   );
-// };
-
 class App extends Component {
   componentDidMount = () => {
     this.props.currentUser();
@@ -72,6 +53,7 @@ class App extends Component {
             <Redirect to="/login" />
           </Switch>
         </Suspense>
+
         {this.props.logger && <Preloader />}
         {this.props.loggerAuthorization && <Preloader />}
       </div>
