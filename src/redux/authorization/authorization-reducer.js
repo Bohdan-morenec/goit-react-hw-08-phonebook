@@ -48,9 +48,25 @@ const authorization = createReducer(false, {
   [logoutSuccess]: () => false,
 });
 
+const logger = createReducer(false, {
+  [registrationRequest]: () => true,
+  [registrationSuccess]: () => false,
+  [registrationError]: () => false,
+  [loginRequest]: () => true,
+  [loginSuccess]: () => false,
+  [loginError]: () => false,
+  [logoutRequest]: () => true,
+  [logoutSuccess]: () => false,
+  [logoutError]: () => false,
+  [currentRequest]: () => true,
+  [currentSuccess]: () => false,
+  [currentError]: () => false,
+});
+
 export default combineReducers({
   user,
   token,
   error,
   authorization,
+  logger,
 });

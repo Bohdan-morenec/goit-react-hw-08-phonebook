@@ -2,7 +2,7 @@ import FormContact from "../component/FormContact";
 import ContactsFilter from "../component/ContactsFilter";
 import ContactList from "../component/ContactList";
 
-import styles from "./App.module.scss";
+import styles from "./PhoneBook.module.scss";
 
 const PhoneBook = () => {
   return (

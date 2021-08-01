@@ -79,8 +79,6 @@ export const logout = () => async (dispatch) => {
 
     dispatch(logoutSuccess());
   } catch (error) {
-    pnotifyError("Something went wrong");
-
     dispatch(logoutError(error.message));
   }
 };

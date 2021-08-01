@@ -1,19 +1,13 @@
 import "./App.css";
-// import FormContact from "./component/FormContact";
-// import ContactsFilter from "./component/ContactsFilter";
-// import ContactList from "./component/ContactList";
-// import UserLogged from "./component/header/header";
 
 import { connect } from "react-redux";
 import { logger } from "./redux/contacts/contact-selectors";
+import { loggerAuthorization } from "./redux/authorization/authorization-selectors";
 import { currentUser } from "./redux/authorization/autorization-operations";
+import { Preloader } from "./options/Preloader/Preloader";
 
-import { Switch, Route, Redirect } from "react-router-dom";
-import { Component, lazy } from "react";
-
-// import PhoneBook from "./Route/PhoneBook";
-// import Register from "./Route/Register/Register";
-// import Login from "./Route/SingIn/SingIn";
+import { Switch, Redirect } from "react-router-dom";
+import { Component, Suspense, lazy } from "react";
 
 import PrivateRoute from "./Route/privateRoute/privateRoute";
 import PublicRoute from "./Route/publicRoute/publicRoute";
@@ -60,24 +54,26 @@ class App extends Component {
     return (
       <div>
         <UserLogged />
-        <Switch>
-          <PublicRoute
-            path="/register"
-            restricted
-            redirect="/"
-            component={Register}
-          />
-          <PublicRoute
-            path="/Login"
-            restricted
-            redirect="/"
-            component={Login}
-          />
-          <PrivateRoute path="/" redirect="/Login" component={PhoneBook} />
-          <Redirect to="/login" />
-        </Switch>
-
-        {this.props.logger && <h1>Загрузк...</h1>}
+        <Suspense fallback={<Preloader />}>
+          <Switch>
+            <PublicRoute
+              path="/register"
+              restricted
+              redirect="/"
+              component={Register}
+            />
+            <PublicRoute
+              path="/Login"
+              restricted
+              redirect="/"
+              component={Login}
+            />
+            <PrivateRoute path="/" redirect="/Login" component={PhoneBook} />
+            <Redirect to="/login" />
+          </Switch>
+        </Suspense>
+        {this.props.logger && <Preloader />}
+        {this.props.loggerAuthorization && <Preloader />}
       </div>
     );
   }
@@ -85,6 +81,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   logger: logger(state),
+  loggerAuthorization: loggerAuthorization(state),
 });
 
 const mapDispatchToProps = {
