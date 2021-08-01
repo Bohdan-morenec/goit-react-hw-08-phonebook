@@ -48,7 +48,6 @@ class Register extends Component {
               type="email"
               value={this.state.email}
               name="email"
-              //   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Enter your email"
               required
             />
@@ -60,7 +59,6 @@ class Register extends Component {
               type="password"
               value={this.state.password}
               name="password"
-              //   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Enter your password"
               required
             />

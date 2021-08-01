@@ -1,7 +1,4 @@
 import { createAction } from "@reduxjs/toolkit";
-// import axios from "axios";
-
-// axios.defaults.baseURL = " http://localhost:3000";
 
 export const addContactRequest = createAction("contact/addContactRequest");
 export const addСontactSuccess = createAction("contact/addСontactSuccess");

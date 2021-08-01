@@ -37,7 +37,6 @@ class Login extends Component {
               type="email"
               value={email}
               name="email"
-              //   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Enter your email"
               required
             />
@@ -49,7 +48,6 @@ class Login extends Component {
               type="password"
               value={password}
               name="password"
-              //   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Enter your password"
               required
             />
